@@ -4,6 +4,14 @@ const Button = ({text, onClick}) => {
   return <button onClick={onClick}>{text}</button>
 }
 
+// const Buttons = ({good, setGood, neutral, setNeutral, bad, setBad, handleClick}) => {
+//   <div>
+//     <Button text={"good"} onClick={handleClick(good, setGood)}/>
+//     <Button text={"neutral"} onClick={handleClick(neutral, setNeutral)}/>
+//     <Button text={"bad"} onClick={handleClick(bad, setBad)}/>
+//   </div>
+// }
+
 const Statistic = ({text, val}) => {
   return (
     <div>

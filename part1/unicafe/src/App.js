@@ -7,7 +7,7 @@ const Button = ({text, onClick}) => {
 const Statistic = ({text, val}) => {
   return (
     <div>
-      <p>{text}{' '}{val}</p>
+      <p>{text}{' '}{isNaN(val) ? 0 : val}{text === "positive" ? ' %' : ''}</p>
     </div>
   )
 }
@@ -32,6 +32,9 @@ const App = () => {
       <Statistic text={"good"} val={good}  />
       <Statistic text={"neutral"} val={neutral}  />
       <Statistic text={"bad"} val={bad}  />
+      <Statistic text={"all"} val={good + neutral + bad}  />
+      <Statistic text={"average"} val={(good + (-bad)) / (good + neutral + bad)}  />
+      <Statistic text={"positive"} val={(good * 100) / (good + neutral + bad)}  />
     </div>
   )
 }

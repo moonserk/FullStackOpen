@@ -14,11 +14,18 @@ const Button = ({text, onClick}) => {
 
 const Statistic = ({text, val}) => {
   return (
-    <div>
-      <p>{text}{' '}{isNaN(val) ? 0 : val}{text === "positive" ? ' %' : ''}</p>
-    </div>
+    <tr>
+      <td>{text}</td><td>{isNaN(val) ? 0 : val}{text === "positive" ? ' %' : ''}</td>
+    </tr>
   )
 }
+// const Statistic = ({text, val}) => {
+//   return (
+//     <div>
+//       <p>{text}{' '}{isNaN(val) ? 0 : val}{text === "positive" ? ' %' : ''}</p>
+//     </div>
+//   )
+// }
 
 const Statistics = ({good, neutral, bad}) => {
   const all = good + neutral + bad;
@@ -31,14 +38,16 @@ const Statistics = ({good, neutral, bad}) => {
     {all === 0 ? 
       <div>No feedback given</div>
     :
-      <div>
-        <Statistic text={"good"} val={good}  />
-        <Statistic text={"neutral"} val={neutral}  />
-        <Statistic text={"bad"} val={bad}  />
-        <Statistic text={"all"} val={all}  />
-        <Statistic text={"average"} val={average}  />
-        <Statistic text={"positive"} val={positive}  />
-      </div>}
+      <table>
+        <tbody>
+          <Statistic text={"good"} val={good}  />
+          <Statistic text={"neutral"} val={neutral}  />
+          <Statistic text={"bad"} val={bad}  />
+          <Statistic text={"all"} val={all}  />
+          <Statistic text={"average"} val={average}  />
+          <Statistic text={"positive"} val={positive}  />
+        </tbody>
+      </table>}
     </div>
   )
 }
